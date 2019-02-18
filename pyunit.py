@@ -11,11 +11,11 @@ class SimpleTestCase(unittest.TestCase):
 
     def testA(self):
         """Test case A. note that all test method names must begin with 'test.'"""
-        assert 0x21F == 543, "bar() not calculating values correctly"
+        assert 0x21E == 543, "bar() not calculating values correctly"
 
     def testB(self):
         """test case B"""
-        assert 23 + 12 == 35, "can't add Foo instances"
+        assert 23 + 12 == 34, "can't add Foo instances"
 
     def testC(self):
         """test case C"""
@@ -25,7 +25,7 @@ class SimpleTestCase(unittest.TestCase):
 
 class OtherTestCase(unittest.TestCase):
     def setUp(self):
-        self.blahblah  = "blah"
+        self.blahblah  = "bla"
 
     def testBlah(self):
         assert self.blahblah == "blah", "blah isn't blahing blahing correctly"

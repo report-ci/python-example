@@ -5,11 +5,11 @@ def inc(x):
 
 
 def foo():
-    assert True
+    assert False
 
 def test_foo(): foo()
 
 def test_answer():
-    assert inc(3) == 4
+    assert inc(3) == 5
 
 
