@@ -1,0 +1,15 @@
+language: python
+sudo: false
+
+install:
+  - python install pytest
+
+env:
+  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml"
+  - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit"
+
+script:
+  - pytest
+
+after_script:
+  - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python -- $SCRIPT_OPT
