@@ -35,5 +35,9 @@ if __name__ == "__main__":
     testRunner = xmlrunner.XMLTestRunner(output=".")
     simpleSuite = unittest.defaultTestLoader.loadTestsFromTestCase(SimpleTestCase)
     otherSuite  = unittest.defaultTestLoader.loadTestsFromTestCase(OtherTestCase)
-    testRunner.run(simpleSuite)
-    testRunner.run(otherSuite)
+
+    success = True
+    success &= testRunner.run(simpleSuite).wasSuccessful()
+    success &= testRunner.run(otherSuite).wasSuccessful()
+
+    exit(0 if success else 1)
