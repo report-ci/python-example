@@ -12,4 +12,4 @@ script:
   - $TEST_CMD
 
 after_script:
-  - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python -- $SCRIPT_OPT
+  - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - $SCRIPT_OPT
