@@ -2,7 +2,7 @@ language: python
 sudo: false
 
 install:
-  - pip install pytest
+  - pip install pytest xmlrunner
 
 env:
   - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml"
