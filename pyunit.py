@@ -15,7 +15,7 @@ class SimpleTestCase(unittest.TestCase):
 
     def testB(self):
         """test case B"""
-        assert 23 + 12 == 34, "can't add Foo instances"
+        assert 23 + 12 == 35, "can't add Foo instances"
 
     def testC(self):
         """test case C"""
@@ -25,7 +25,7 @@ class SimpleTestCase(unittest.TestCase):
 
 class OtherTestCase(unittest.TestCase):
     def setUp(self):
-        self.blahblah  = "bla"
+        self.blahblah  = "blah"
 
     def testBlah(self):
         assert self.blahblah == "blah", "blah isn't blahing blahing correctly"
