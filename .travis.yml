@@ -9,7 +9,7 @@ env:
   - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit"
 
 script:
-  - pytest
+  - $TEST_CMD
 
 after_script:
   - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python -- $SCRIPT_OPT
