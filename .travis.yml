@@ -3,13 +3,15 @@ sudo: false
 
 install:
   - pip install pytest xmlrunner
+  - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/annotate.py > annotate.py
+  - set -o pipefail
 
 env:
-  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml"
-  - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit"
+  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml" FRAMEWORK=PyTest
+  - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit" FRAMEWORK=PyUnit
 
 script:
-  - $TEST_CMD
+  - $TEST_CMD | python annotate.py --tool python --tee --name "$FRAMEWORK log"
 
 after_script:
   - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - $SCRIPT_OPT
