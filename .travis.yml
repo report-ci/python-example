@@ -11,7 +11,7 @@ env:
   - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit" FRAMEWORK=PyUnit
 
 script:
-  - $TEST_CMD | python annotate.py --tool python --tee --name "$FRAMEWORK log"
+  - $TEST_CMD 2>&1 | python annotate.py --tool python --tee --name "$FRAMEWORK log"
 
 after_script:
   - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - $SCRIPT_OPT
