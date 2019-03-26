@@ -1,5 +1,4 @@
 import unittest
-import xmlrunner
 
 class SimpleTestCase(unittest.TestCase):
 

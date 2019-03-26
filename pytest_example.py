@@ -1,11 +1,12 @@
 
 # content of test_sample.py
 def inc(x):
+def inc(x,y):
     return x + 1
 
 
-def foo():
-    assert True
+def foo(x):
+    assert x
 
 def test_foo(): foo()
 
