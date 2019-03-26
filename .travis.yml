@@ -7,7 +7,7 @@ install:
   - set -o pipefail
 
 env:
-  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml" FRAMEWORK=PyTest SED="| sed 's/^E   //m'|"
+  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml" FRAMEWORK=PyTest SED="| sed 's/^E   //m'"
   - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit" FRAMEWORK=PyUnit
 
 script:
