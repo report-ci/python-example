@@ -7,11 +7,11 @@ install:
   - set -o pipefail
 
 env:
-  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml" FRAMEWORK=PyTest SED="'s/^E   //m'"
-  - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit" FRAMEWORK=PyUnit SED="''"
+  - TEST_CMD="pytest pytest_example.py --junit-xml=pytest_example.xml" FRAMEWORK=PyTest
+  - TEST_CMD="python pyunit.py" SCRIPT_OPT="--framework=pyunit" FRAMEWORK=PyUnit
 
 script:
-  - $TEST_CMD 2>&1 | set $SED | python annotate.py --tool python --tee --name "$FRAMEWORK log"
+  - $TEST_CMD 2>&1 | python annotate.py --tool python --tee --name "$FRAMEWORK log"
 
 after_script:
   - curl -s https://raw.githubusercontent.com/report-ci/scripts/master/upload.py | python - $SCRIPT_OPT
